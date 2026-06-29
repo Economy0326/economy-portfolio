@@ -31,9 +31,9 @@ window.siteContent = {
                 suffix: "로 경매형 중고거래 UI를 구현하며"
             },
             {
-                label: "API Flow",
-                href: "https://github.com/Economy0326/shopping-backend",
-                suffix: "를 기준으로 화면 정책을 정리했습니다."
+                label: "API 연동 흐름",
+                href: "https://github.com/Economy0326/shopping-frontend",
+                suffix: "을 기준으로 주문/반품 화면 정책을 정리했습니다."
             }
         ]
     },
@@ -57,7 +57,7 @@ window.siteContent = {
         },
         {
             title: "Shopping API",
-            description: "쇼핑몰 화면 흐름에 필요한 인증, 주문, 반품 API 구조 이해 및 연동",
+            description: "쇼핑몰 화면 흐름에 맞춰 인증, 주문, 반품 API 구조를 정리하고 연동",
             url: "https://github.com/Economy0326/shopping-backend",
             backgroundImage: "./imgs/projects/shopping-backend-architecture.png",
             backgroundColor: "#111827",
@@ -101,7 +101,7 @@ window.siteContent = {
     },
 
     awards: {
-        title: "Built",
+        title: "Work",
         items: [
             {
                 label: "Shopping Mall",
