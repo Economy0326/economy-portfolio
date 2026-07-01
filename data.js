@@ -21,19 +21,19 @@ window.siteContent = {
         subtitle: "안녕하세요, 복잡한 흐름을 이해하기 쉬운 화면으로 풀어내는 <strong>프론트엔드 개발자 정경재</strong>입니다.",
         achievements: [
             {
-                label: "React",
-                href: "https://github.com/Economy0326/shopping-frontend",
-                suffix: "로 쇼핑몰 주문 흐름을 구현하고"
+                label: "팝업스토어 프로젝트",
+                href: "https://github.com/Economy0326/popfitup-frontend",
+                suffix: "에서 지도 기반 팝업스토어 탐색 흐름을 구현하고"
             },
             {
-                label: "Next.js",
+                label: "쇼핑몰 프로젝트",
+                href: "https://github.com/Economy0326/shopping-frontend",
+                suffix: "에서 주문/반품/관리자 화면의 API 연동 흐름을 정리했으며"
+            },
+            {
+                label: "중고거래 프로젝트",
                 href: "https://github.com/Economy0326/secondhand-frontend",
-                suffix: "로 경매형 중고거래 UI를 구현하며"
-            },
-            {
-                label: "API 연동 흐름",
-                href: "https://github.com/Economy0326/shopping-frontend",
-                suffix: "을 기준으로 주문/반품 화면 정책을 정리했습니다."
+                suffix: "에서 일반 거래와 경매 거래를 구분한 UI를 구현했습니다."
             }
         ]
     },
