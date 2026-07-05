@@ -51,12 +51,20 @@ const renderHero = (heroData) => {
                 ? `<a href="${item.href}" target="_blank" rel="noopener noreferrer" class="rank-value">${item.label}</a>`
                 : `<span class="rank-value">${item.label}</span>`;
 
-            const suffix = item.suffix ? ` ${item.suffix}` : "";
-            return `${link}${suffix}`;
-        })
-        .join(", ");
+            const suffix = item.suffix ? `<span>${item.suffix}</span>` : "";
 
-    const achievementBlock = achievementsMarkup ? `<p class="rank">${achievementsMarkup}</p>` : "";
+            return `
+                <li class="rank-item">
+                    <span class="rank-marker">-</span>
+                    <span>${link}: ${suffix}</span>
+                </li>
+            `;
+        })
+        .join("");
+
+    const achievementBlock = achievementsMarkup
+        ? `<ul class="rank-list">${achievementsMarkup}</ul>`
+        : "";
 
     heroRoot.innerHTML = `${introMarkup}${subtitleMarkup}${achievementBlock}`;
 };
