@@ -18,30 +18,14 @@ window.siteContent = {
 
     hero: {
         intro: null,
-        subtitle: "안녕하세요, <strong>사용자가 헷갈리지 않는 화면을 만드는</strong> 프론트엔드 개발자 정경재입니다.",
-        achievements: [
-            {
-                label: "SecondHand Auction",
-                href: "https://github.com/Economy0326/secondhand-frontend",
-                suffix: "일반 거래와 경매 거래를 나누고, 서버 상태 동기화와 반복 클릭 방지 흐름을 다뤘습니다."
-            },
-            {
-                label: "PopFitUp",
-                href: "https://github.com/Economy0326/popfitup-frontend",
-                suffix: "지도 기반 팝업스토어 탐색, URL query, fallback UI를 연결했습니다."
-            },
-            {
-                label: "Shopping Mall",
-                href: "https://github.com/Economy0326/shopping-frontend",
-                suffix: "주문, 반품, 관리자 화면의 API 연동 흐름을 구현했습니다."
-            }
-        ]
+        subtitle: "안녕하세요, <strong>사용자 흐름과 예외 상황을 함께 고려하며 화면을 만드는</strong> 프론트엔드 개발자 정경재입니다.",
+        achievements: []
     },
 
     projects: [
         {
             title: "SecondHand Auction",
-            description: "팀 프로젝트 · 일반 거래와 경매 거래를 분기하고, 서버 상태 동기화와 UI 상태 분리를 다룬 중고거래 화면",
+            description: "팀 프로젝트 · 일반 판매/경매 판매, 입찰 가능 여부, 찜/입찰 상태를 분기한 중고거래 UI",
             url: "https://github.com/Economy0326/secondhand-frontend",
             backgroundImage: "./imgs/projects/secondhand-cover.gif",
             backgroundColor: "#0f172a",
@@ -49,7 +33,7 @@ window.siteContent = {
         },
         {
             title: "PopFitUp",
-            description: "팀 프로젝트 · 크롤링된 팝업스토어 데이터를 지도와 리스트로 탐색하는 UI 구현",
+            description: "팀 프로젝트 · 크롤링된 팝업스토어 데이터를 지도, 리스트, URL query로 탐색하는 UI",
             url: "https://github.com/Economy0326/popfitup-frontend",
             backgroundImage: "./imgs/projects/popfitup-cover.gif",
             backgroundColor: "#2563eb",
@@ -57,7 +41,7 @@ window.siteContent = {
         },
         {
             title: "Shopping Mall",
-            description: "개인 프로젝트 · 회원/비회원 주문, 반품, 관리자 주문 처리 화면의 API 연동 흐름 구현",
+            description: "개인 프로젝트 · 비회원 주문 조회와 관리자 주문/반품 처리를 중심으로 구성한 쇼핑몰 화면",
             url: "https://github.com/Economy0326/shopping-frontend",
             backgroundImage: "./imgs/projects/shopping-cover.gif",
             backgroundColor: "#ef4444",
@@ -65,7 +49,7 @@ window.siteContent = {
         },
         {
             title: "Shopping API",
-            description: "쇼핑몰 화면 흐름에 맞춰 인증, 주문, 반품, 관리자 API 구조를 정리한 NestJS 서버",
+            description: "개인 프로젝트 · 인증, 주문, 반품, 관리자 API 흐름을 정리한 NestJS 서버",
             url: "https://github.com/Economy0326/shopping-backend",
             backgroundImage: "./imgs/projects/shopping-backend-architecture.png",
             backgroundColor: "#111827",
@@ -76,10 +60,9 @@ window.siteContent = {
     about: {
         title: "About",
         paragraphs: [
-            "저는 사용자가 지금 무엇을 할 수 있고, 왜 할 수 없는지 자연스럽게 알 수 있는 화면을 만들고 싶습니다.",
-            "비회원 주문, 지도 기반 탐색, 경매 입찰처럼 조건과 예외가 많은 기능을 구현하면서, 좋은 UI는 예쁜 화면보다 상태와 흐름을 이해하기 쉽게 보여주는 데서 나온다고 느꼈습니다.",
-            "그래서 컴포넌트를 만들기 전에 Swagger로 요청/응답 구조를 먼저 확인하고, 화면에 필요한 데이터와 상태별 예외 상황을 정리한 뒤 구현하려고 합니다.",
-            "앞으로도 사용자가 헷갈리지 않고, 불필요하게 기다리거나 같은 행동을 반복하지 않아도 되는 웹을 만드는 프론트엔드 개발자가 되려고 합니다."
+            "프로젝트를 진행하면서 단순히 기능을 구현하는 것보다, 사용자가 어떤 상황에서 불편함을 느낄 수 있는지 먼저 생각하는 일이 중요하다고 느꼈습니다.",
+            "비회원 주문, 지도 기반 탐색, 경매 입찰처럼 조건이 많은 기능을 만들면서 로딩, 실패, 권한, 입력 제한 같은 상황을 화면에서 어떻게 안내할지 고민했습니다.",
+            "코드를 작성할 때는 React Hook의 실행 순서와 상태 변경이 어떤 렌더링 흐름으로 이어지는지 따라가며 구현하려고 합니다. 또한 Swagger나 화면 명세를 먼저 확인하고, 필요한 데이터와 예외 상황을 정리한 뒤 화면을 만듭니다."
         ]
     },
 
@@ -88,11 +71,11 @@ window.siteContent = {
         categories: [
             {
                 label: "Core",
-                items: "TypeScript / React / Next.js / React Hooks / Component Design"
+                items: "TypeScript / JavaScript / React / Next.js / React Hooks"
             },
             {
                 label: "Frontend",
-                items: "REST API / Swagger / Auth Flow / Error Handling / Search Filter / Pagination / Map UI"
+                items: "REST API / Swagger / Auth Flow / Search Filter / Pagination / Naver Maps SDK"
             },
             {
                 label: "State & Quality",
@@ -110,17 +93,17 @@ window.siteContent = {
         items: [
             {
                 label: "SecondHand Auction",
-                detail: "일반 판매와 경매 판매가 함께 노출되는 중고거래 화면에서 상품 상태와 경매 상태를 분리했습니다. 서버와 맞아야 하는 데이터는 TanStack Query로 동기화하고, 헤더와 탭 같은 UI 상태는 Zustand로 분리했습니다.",
+                detail: "일반 판매와 경매 판매가 함께 노출되는 화면에서 상품 상태와 경매 상태를 분리했습니다. 서버 데이터는 TanStack Query로 동기화하고, 헤더와 탭 같은 UI 상태는 Zustand로 분리했습니다.",
                 tags: ["TanStack Query", "Zustand", "Auction Policy", "Pending UI"]
             },
             {
                 label: "PopFitUp",
-                detail: "크롤링 데이터의 빈 값과 지도 SDK 로딩 상태를 고려해 팝업스토어 카드와 지도 마커가 안정적으로 연결되도록 구현했습니다. 검색 조건은 URL query로 유지하고, 좌표나 이미지가 없는 데이터는 fallback UI로 처리했습니다.",
-                tags: ["Map UX", "Fallback UI", "URL Query"]
+                detail: "네이버 지도 SDK를 사용해 팝업스토어 목록, 스크롤 위치, 지도 마커가 함께 움직이는 탐색 흐름을 구현했습니다. 크롤링 데이터의 빈 값과 좌표 누락은 fallback UI로 처리하며, 첫 명세 고정의 필요성을 경험했습니다.",
+                tags: ["Naver Maps SDK", "Fallback UI", "URL Query"]
             },
             {
                 label: "Shopping Mall",
-                detail: "회원/비회원 주문과 관리자 주문 처리 화면을 구현했습니다. 주문번호와 휴대폰 번호를 기준으로 비회원 주문 조회, 취소, 반품 요청까지 이어지도록 화면 흐름을 정리했습니다.",
+                detail: "쇼핑몰 프로젝트에서는 상품 목록보다 비회원 주문과 관리자 처리 흐름에 더 집중했습니다. 무통장입금과 직접 배송 기준으로 주문, 취소, 반품, 입금 확인, 배송 처리 흐름을 구현했습니다.",
                 tags: ["Guest Order", "Admin Flow", "Order Flow"]
             },
             {

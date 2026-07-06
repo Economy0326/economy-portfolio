@@ -241,7 +241,7 @@ html {
 /* 전체 가로 카드: 16:9 비율 유지 */
 .project--wide {
     grid-column: span 3;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 21 / 10;
 }
 
 /* 쇼핑몰 프론트 카드: 16:9 비율 유지 */
