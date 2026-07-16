@@ -120,7 +120,7 @@ const createProjectItem = (project) => {
 };
 
 const renderProjects = (projects) => {
-    const projectsRoot = document.getElementById("projects");
+    const projectsRoot = document.getElementById("project-list");
     if (!projectsRoot || !projects || !projects.length) return;
 
     projectsRoot.innerHTML = "";
@@ -165,7 +165,7 @@ const renderAbout = (aboutData) => {
 };
 
 const renderTech = (techData) => {
-    const techRoot = document.getElementById("Tech");
+    const techRoot = document.getElementById("tech");
     if (!techRoot || !techData) return;
 
     const wrapper = buildSectionWrapper(techData);
@@ -176,7 +176,21 @@ const renderTech = (techData) => {
         label.textContent = category.label;
 
         const items = document.createElement("p");
-        items.textContent = category.items;
+        items.className = "tech-items";
+
+        const itemList = Array.isArray(category.items)
+            ? category.items
+            : String(category.items || "").split(/\s*\/\s*/);
+
+        itemList
+            .filter(Boolean)
+            .forEach((item) => {
+                const itemElement = document.createElement("span");
+                itemElement.className = "tech-item";
+                itemElement.textContent = item;
+
+                items.appendChild(itemElement);
+            });
 
         wrapper.appendChild(label);
         wrapper.appendChild(items);
@@ -233,7 +247,7 @@ const initScrollAnimations = () => {
     let scrollPos = window.scrollY;
 
     const about = document.querySelector("#about > .text-wrap");
-    const tech = document.querySelector("#Tech > .text-wrap");
+    const tech = document.querySelector("#tech > .text-wrap");
     const awards = document.querySelector("#awards > .text-wrap");
 
     const sections = [

@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+[data-anchor] {
+    scroll-margin-top:80px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -158,6 +162,7 @@ html {
 }
 
 /* 기존 문단형 요약을 남겨둘 때 사용하는 스타일 */
+
 .rank {
     max-width: 760px;
     margin-top: 22px;
@@ -168,6 +173,7 @@ html {
 }
 
 /* Hero 프로젝트 요약 리스트 */
+
 .rank-list {
     max-width: 820px;
     margin-top: 22px;
@@ -238,19 +244,20 @@ html {
     border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
-/* 전체 가로 카드: 16:9 비율 유지 */
+/* SecondHand, PopFitUp 전체 너비 카드 */
 .project--wide {
     grid-column: span 3;
     aspect-ratio: 21 / 10;
 }
 
-/* 쇼핑몰 프론트 카드: 16:9 비율 유지 */
+/* Shopping Mall 프론트 카드 */
 .project--main {
     grid-column: span 2;
     aspect-ratio: 16 / 9;
 }
 
-/* 백엔드 카드는 옆 카드 높이에 맞춰 stretch */
+/* Shopping API 카드는 옆 카드 높이에 맞춰 stretch */
+
 .project--side {
     grid-column: span 1;
 }
@@ -271,6 +278,7 @@ html {
 }
 
 /* 기본 상태에서는 오버레이 없음 */
+
 .project::before {
     content: "";
     position: absolute;
@@ -377,7 +385,8 @@ html {
     line-height: 1.5;
 }
 
-/* Backend 구조도는 절대 잘리지 않게 contain */
+/* Backend 구조도는 잘리지 않게 표시 */
+
 .project--contain .project-image {
     background-size: contain;
     background-position: center;
@@ -397,7 +406,7 @@ html {
 /* Text Sections */
 
 .about,
-.Tech,
+.tech,
 .awards {
     width: min(var(--content-width), calc(100% - 40px));
     margin: 0 auto;
@@ -439,7 +448,23 @@ p.text-intro {
 
 /* Tech */
 
-.Tech .text-wrap p:not(.text-intro) {
+.tech-items {
+    line-height: 1.9;
+}
+
+.tech-item {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.tech-item:not(:last-child)::after {
+    content: "/";
+    display: inline-block;
+    margin: 0 10px;
+    color: #94a3b8;
+}
+
+.tech .text-wrap p:not(.text-intro) {
     padding: 16px 18px;
     background: var(--surface);
     border: 1px solid var(--line);
@@ -448,7 +473,7 @@ p.text-intro {
     color: #64748b;
 }
 
-/* Built */
+/* Highlights */
 
 .awards-grid {
     display: grid;
@@ -551,8 +576,9 @@ p.text-intro {
     }
 
     /*
-        모바일은 hover가 없기 때문에 제목/설명을 항상 보여줌
+        모바일은 hover가 없기 때문에 제목과 설명을 항상 표시
     */
+
     .project::before {
         opacity: 0.82;
     }
@@ -570,7 +596,7 @@ p.text-intro {
     .projects-intro,
     .projects,
     .about,
-    .Tech,
+    .tech,
     .awards {
         width: min(100% - 28px, var(--content-width));
     }

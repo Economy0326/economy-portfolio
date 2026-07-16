@@ -5,8 +5,8 @@ window.siteContent = {
         links: [
             { label: "Projects", href: "#projects" },
             { label: "About", href: "#about" },
-            { label: "Tech", href: "#Tech" },
-            { label: "Work", href: "#awards" },
+            { label: "Tech", href: "#tech" },
+            { label: "Highlights", href: "#awards" },
             {
                 iconClass: "fab fa-github",
                 href: "https://github.com/Economy0326",
@@ -25,7 +25,7 @@ window.siteContent = {
     projects: [
         {
             title: "SecondHand Auction",
-            description: "팀 프로젝트 · 일반 판매/경매 판매, 입찰 가능 여부, 찜/입찰 상태를 분기한 중고거래 UI",
+            description: "팀 프로젝트 · 일반 거래와 경매 거래의 상태를 분리하고, 입찰 가능 여부와 상품 수정 제한을 화면 흐름에 반영한 중고거래 서비스",
             url: "https://github.com/Economy0326/secondhand-frontend",
             backgroundImage: "./imgs/projects/secondhand-cover.gif",
             backgroundColor: "#0f172a",
@@ -33,7 +33,7 @@ window.siteContent = {
         },
         {
             title: "PopFitUp",
-            description: "팀 프로젝트 · 크롤링된 팝업스토어 데이터를 지도, 리스트, URL query로 탐색하는 UI",
+            description: "팀 프로젝트 · 지도와 목록을 연결하고, 검색 조건 유지와 크롤링 데이터 누락을 처리한 팝업스토어 탐색 서비스",
             url: "https://github.com/Economy0326/popfitup-frontend",
             backgroundImage: "./imgs/projects/popfitup-cover.gif",
             backgroundColor: "#2563eb",
@@ -41,7 +41,7 @@ window.siteContent = {
         },
         {
             title: "Shopping Mall",
-            description: "개인 프로젝트 · 비회원 주문 조회와 관리자 주문/반품 처리를 중심으로 구성한 쇼핑몰 화면",
+            description: "개인 프로젝트 · 회원과 비회원 주문, 관리자의 입금 확인, 배송, 반품 처리 흐름을 구현한 쇼핑몰",
             url: "https://github.com/Economy0326/shopping-frontend",
             backgroundImage: "./imgs/projects/shopping-cover.gif",
             backgroundColor: "#ef4444",
@@ -49,7 +49,7 @@ window.siteContent = {
         },
         {
             title: "Shopping API",
-            description: "개인 프로젝트 · 인증, 주문, 반품, 관리자 API 흐름을 정리한 NestJS 서버",
+            description: "Shopping Mall 연계 · 프론트엔드 연동에 필요한 인증, 주문, 반품, 관리자 처리 흐름을 구성한 NestJS API",
             url: "https://github.com/Economy0326/shopping-backend",
             backgroundImage: "./imgs/projects/shopping-backend-architecture.png",
             backgroundColor: "#111827",
@@ -60,9 +60,11 @@ window.siteContent = {
     about: {
         title: "About",
         paragraphs: [
-            "프로젝트를 진행하면서 단순히 기능을 구현하는 것보다, 사용자가 어떤 상황에서 불편함을 느낄 수 있는지 먼저 생각하는 일이 중요하다고 느꼈습니다.",
-            "비회원 주문, 지도 기반 탐색, 경매 입찰처럼 조건이 많은 기능을 만들면서 로딩, 실패, 권한, 입력 제한 같은 상황을 화면에서 어떻게 안내할지 고민했습니다.",
-            "코드를 작성할 때는 React Hook의 실행 순서와 상태 변경이 어떤 렌더링 흐름으로 이어지는지 따라가며 구현하려고 합니다. 또한 Swagger나 화면 명세를 먼저 확인하고, 필요한 데이터와 예외 상황을 정리한 뒤 화면을 만듭니다."
+            "사용자가 현재 상황을 이해하고 다음 행동을 이어갈 수 있는 화면을 만들려고 합니다. 기능이 정상적으로 동작하는 경우뿐 아니라 요청 중이거나 실패했을 때, 권한이 없거나 데이터가 비어 있을 때의 흐름도 함께 고려합니다.",
+
+            "화면부터 바로 만들기보다는 주요 정책과 데이터 흐름을 먼저 정리합니다. Swagger로 요청과 응답을 확인하고, 화면에 필요한 데이터와 각 상황에 맞는 상태 변화를 정리한 뒤 구현합니다.",
+
+            "React의 상태 변화가 화면에 반영되는 시점과 Effect의 실행 순서를 확인하며 코드를 작성합니다. 서버에서 받아오는 데이터와 화면 안에서 바뀌는 상태를 구분하고, 각각 필요한 시점에 갱신되도록 구성합니다."
         ]
     },
 
@@ -74,42 +76,42 @@ window.siteContent = {
                 items: "TypeScript / JavaScript / React / Next.js / React Hooks"
             },
             {
-                label: "Frontend",
-                items: "REST API / Swagger / Auth Flow / Search Filter / Pagination / Naver Maps SDK"
+                label: "State & Data",
+                items: "TanStack Query / Zustand / REST API / Swagger"
             },
             {
-                label: "State & Quality",
-                items: "TanStack Query / Zustand / Pending UI / Vitest / Testing Library"
+                label: "UI Flow",
+                items: "Pending UI / Fallback UI / Search Filter / Pagination / Naver Maps SDK"
             },
             {
-                label: "Tools",
-                items: "Git / GitHub / Git Flow / VS Code / Chrome DevTools / Vercel"
+                label: "Test & Tools",
+                items: "Vitest / Testing Library / Git / GitHub / Chrome DevTools / Vercel"
             }
         ]
     },
 
     awards: {
-        title: "Work",
+        title: "Highlights",
         items: [
             {
                 label: "SecondHand Auction",
-                detail: "일반 판매와 경매 판매가 함께 노출되는 화면에서 상품 상태와 경매 상태를 분리했습니다. 서버 데이터는 TanStack Query로 동기화하고, 헤더와 탭 같은 UI 상태는 Zustand로 분리했습니다.",
+                detail: "일반 거래와 경매 거래의 상태를 구분했습니다. 찜 여부와 찜 수, 내 입찰 목록처럼 서버와 동기화해야 하는 데이터는 TanStack Query로 관리하고, 화면 내부 UI 상태는 Zustand로 분리했습니다. 입찰 가능 여부, 요청 중 중복 제출 방지, 이미지 수정 제한을 화면에 반영하고 관련 정책 로직을 테스트했습니다.",
                 tags: ["TanStack Query", "Zustand", "Auction Policy", "Pending UI"]
             },
             {
                 label: "PopFitUp",
-                detail: "네이버 지도 SDK를 사용해 팝업스토어 목록, 스크롤 위치, 지도 마커가 함께 움직이는 탐색 흐름을 구현했습니다. 크롤링 데이터의 빈 값과 좌표 누락은 fallback UI로 처리하며, 첫 명세 고정의 필요성을 경험했습니다.",
+                detail: "네이버 지도 SDK로 지도 마커와 카드 스크롤을 연결했습니다. 지역, 날짜, 카테고리 조건을 URL query로 관리해 새로고침과 URL 공유 후에도 탐색 상태를 유지했습니다. 이미지, 카테고리, 설명 누락은 fallback UI로 처리하고, 좌표가 없는 데이터는 지도 마커에서 제외했습니다.",
                 tags: ["Naver Maps SDK", "Fallback UI", "URL Query"]
             },
             {
                 label: "Shopping Mall",
-                detail: "쇼핑몰 프로젝트에서는 상품 목록보다 비회원 주문과 관리자 처리 흐름에 더 집중했습니다. 무통장입금과 직접 배송 기준으로 주문, 취소, 반품, 입금 확인, 배송 처리 흐름을 구현했습니다.",
+                detail: "회원과 비회원의 주문 접근 방식을 나누고, 비회원은 주문번호와 휴대폰 번호로 주문을 조회하고 이후 절차를 이어갈 수 있도록 구성했습니다. 무통장입금과 우체국 직접 발송을 기준으로 주문, 입금 확인, 배송, 취소, 반품의 처리 흐름을 구현했습니다.",
                 tags: ["Guest Order", "Admin Flow", "Order Flow"]
             },
             {
                 label: "Collaboration",
-                detail: "팀 프로젝트를 진행하며 API 명세와 화면 정책을 먼저 고정해야 구현 과정의 혼선을 줄일 수 있다는 점을 경험했습니다. Swagger를 기준으로 요청/응답을 맞추고, 상태별 예외를 먼저 정리한 뒤 구현했습니다.",
-                tags: ["Swagger", "Git Flow", "Policy First"]
+                detail: "팀 프로젝트에서 API 명세와 화면 정책을 먼저 공유하고, Swagger로 요청과 응답 구조를 맞췄습니다. 상태별 화면 흐름과 예외 처리 기준을 함께 확인하며 구현 기준을 맞췄습니다.",
+                tags: ["Swagger", "API Contract", "Policy First"]
             }
         ]
     }
