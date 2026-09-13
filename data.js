@@ -19,7 +19,7 @@ window.siteContent = {
     hero: {
         intro: null,
         subtitle:
-            "안녕하세요, <strong>사용자 흐름과 서비스 정책</strong>을 먼저 정리하고, Frontend를 중심으로 <strong>Backend와 AI까지 연결해 서비스를 구현하는</strong> 개발자 정경재입니다.",
+            "안녕하세요, <strong>쉽게 이해하고 믿고 이용할 수 있는 서비스</strong>를 만들기 위해 필요한 기술을 연결해 구현하는 개발자 정경재입니다.",
         achievements: []
     },
 
@@ -65,11 +65,11 @@ window.siteContent = {
     about: {
         title: "About",
         paragraphs: [
-            "사용자가 지금 어떤 상태에 있고, 다음에 무엇을 해야 하는지가 화면에서 자연스럽게 이어지도록 만드는 걸 중요하게 생각합니다.",
+            "복잡한 기능도 사용자가 어렵지 않게 이해하고 이용할 수 있는 UI/UX를 중요하게 생각합니다.",
 
-            "기능을 바로 만들기보다 사용자 흐름과 상태 변화, 예외 조건을 먼저 정리하고 Frontend와 Backend가 같은 기준으로 움직이도록 맞추려고 합니다.",
+            "정상적인 흐름뿐 아니라 실제 사용 중 자주 생길 수 있는 예외적인 상황까지 고려해, 사용자가 믿고 계속 이용할 수 있도록 구현하려고 합니다.",
 
-            "프로젝트마다 필요한 범위는 다르지만, 각 기능을 하나의 흐름으로 연결하고 끝까지 동작하는 서비스로 완성하는 데 집중하고 있습니다."
+            "정확성이 중요한 정보는 그대로 보여주기보다, 서비스 안에서 검증할 수 있는 기준을 두고 확인한 뒤 전달하는 방식을 중요하게 생각합니다."
         ]
     },
 
@@ -100,31 +100,31 @@ window.siteContent = {
     },
 
     awards: {
-        title: "Highlights",
+        title: "Decisions",
         items: [
             {
-                label: "User Flow & State",
+                label: "Why Server-managed State?",
                 detail:
-                    "사용자가 어느 단계에 있는지를 화면에서 따로 판단하지 않고 서버의 상태를 기준으로 이어가도록 구성했습니다. 금융 도우미에서는 currentStep을 기준으로 화면을 이동하고, 다시 접속해도 진행 중이던 상담을 이어갈 수 있도록 했습니다.",
-                tags: ["User Flow", "State", "Recovery"]
+                    "AI 분석에는 시간이 걸리고 사용자가 그동안 다른 화면으로 이동하거나 브라우저를 닫을 수 있다고 생각했습니다. 그래서 Financial Helper에서는 상담 단계와 분석 상태를 서버에서 관리하고, Frontend는 TanStack Query로 현재 상태를 다시 조회해 새로고침이나 재접속 후에도 상담을 이어갈 수 있도록 구성했습니다.",
+                tags: ["Async", "Polling", "Recovery"]
             },
             {
-                label: "Policy Before UI",
+                label: "Why Manage Official Data?",
                 detail:
-                    "기능을 구현하기 전에 가능한 조건과 상태 변화를 먼저 정리하려고 합니다. SecondHand에서는 경매 상태별 입찰·수정·취소 조건을 먼저 정리했고, Shopping에서는 반복되는 수정 이후 주문부터 배송·취소·반품까지의 상태 흐름을 다시 정리했습니다.",
-                tags: ["Policy", "State Flow", "Exception"]
+                    "금융 상담에서는 AI가 답을 만드는 것보다 안내에 사용되는 정보가 정확한지 확인할 수 있어야 한다고 생각했습니다. 그래서 Financial Helper에서는 공식 자료를 정해진 기준으로 수집하고, 원문과 정리된 내용을 함께 보존하며 변경된 문서를 버전으로 관리할 수 있는 기반을 구현했습니다.",
+                tags: ["Validation", "Versioning", "Data Integrity"]
             },
             {
-                label: "Frontend ↔ Backend",
+                label: "Why Different Update Strategies?",
                 detail:
-                    "Frontend와 Backend의 요청·응답과 상태 기준을 맞추면서 기능을 연결합니다. PopFitUp에서는 Backend와 API 구조를 다시 맞추며 기존 Frontend 코드를 수정했고, Shopping에서는 주문부터 반품까지 전체 흐름을 연결했습니다.",
-                tags: ["API Contract", "Integration", "Collaboration"]
+                    "SecondHand에서는 모든 요청을 같은 방식으로 빠르게 보여주는 게 맞지 않다고 생각했습니다. 찜은 실패해도 이전 상태로 되돌릴 수 있어 Optimistic Update를 적용했지만, 입찰은 현재가와 다른 사용자의 입찰에 영향을 받을 수 있어 화면에서 먼저 반영하지 않고 성공 후 서버 데이터를 다시 조회하도록 했습니다.",
+                tags: ["Optimistic Update", "Mutation", "Sync"]
             },
             {
-                label: "AI in Service Flow",
+                label: "Why Consider Non-ideal Cases?",
                 detail:
-                    "AI 응답을 바로 화면이나 서비스 상태에 사용하지 않고 Backend에서 검증한 뒤 반영했습니다. 금융 도우미에서는 Structured Output을 검증하고 저장한 뒤 다음 상담 단계로 이어지도록 구성했습니다.",
-                tags: ["OpenAI", "Validation", "Structured Output"]
+                    "실제 서비스에서는 데이터가 항상 완전하거나 모든 사용자가 로그인한 상태만 있는 것은 아니라고 봤습니다. 그래서 PopFitUp에서는 크롤링 데이터의 이미지나 좌표가 누락된 경우를 따로 처리했고, Shopping에서는 비회원도 주문을 조회하고 주문 이후 흐름을 이어갈 수 있도록 구성했습니다.",
+                tags: ["Fallback", "Guest Flow", "Exception"]
             }
         ]
     }
