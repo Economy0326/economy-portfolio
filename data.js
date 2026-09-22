@@ -4,9 +4,8 @@ window.siteContent = {
         logoAccent: "_",
         links: [
             { label: "Projects", href: "#projects" },
-            { label: "About", href: "#about" },
-            { label: "Tech", href: "#tech" },
             { label: "Decisions", href: "#awards" },
+            { label: "Tech", href: "#tech" },
             {
                 iconClass: "fab fa-github",
                 href: "https://github.com/Economy0326",
@@ -19,7 +18,7 @@ window.siteContent = {
     hero: {
         intro: null,
         subtitle:
-            "안녕하세요, <strong>쉽게 이해하고 안심하고 이용할 수 있는 서비스</strong>를 만들기 위해 필요한 기술을 연결해 구현하는 개발자 정경재입니다.",
+            "<strong>소프트웨어 엔지니어 정경재</strong><br>복잡한 상태와 정책을 사용자에게는 단순한 흐름으로, 시스템에서는 검증 가능한 구조로 연결합니다.",
         achievements: []
     },
 
@@ -27,7 +26,7 @@ window.siteContent = {
         {
             title: "Financial Helper",
             description:
-                "개인 프로젝트 · 디지털 금융 이용이 익숙하지 않은 사용자를 위해 단계형 상담 UX와 AI 분석을 연결하고, 재접속 후에도 상담 흐름이 이어지도록 설계한 금융 도우미",
+                "개인 프로젝트, 확인된 사실과 검토된 공식 근거를 바탕으로 금융 피해 상황의 다음 행동을 단계적으로 안내하는 금융소비자 보호 서비스",
             url: "https://github.com/Economy0326/financial-helper-frontend",
             backgroundImage: "./imgs/projects/financial-helper-cover.gif",
             backgroundColor: "#0f766e",
@@ -36,7 +35,7 @@ window.siteContent = {
         {
             title: "SecondHand Auction",
             description:
-                "팀 프로젝트 · 찜과 입찰의 성격에 따라 서로 다른 상태 업데이트 방식을 적용하고, 서버 상태와 화면 상태를 구분해 관리한 중고거래 서비스",
+                "팀 프로젝트, 경매 상태와 기능 특성에 따라 거래 정책과 서버 데이터 갱신 방식을 구분한 중고거래 서비스",
             url: "https://github.com/Economy0326/secondhand-frontend",
             backgroundImage: "./imgs/projects/secondhand-cover.gif",
             backgroundColor: "#0f172a",
@@ -45,7 +44,7 @@ window.siteContent = {
         {
             title: "PopFitUp",
             description:
-                "팀 프로젝트 · 지도와 목록을 연결하고, 데이터가 일부 누락되거나 검색 조건이 바뀌어도 탐색 흐름이 유지되도록 구성한 팝업스토어 탐색 서비스",
+                "팀 프로젝트, URL 기반 검색 상태와 Naver Maps를 연결하고 불완전한 실데이터에서도 탐색 흐름을 유지한 팝업스토어 탐색 서비스",
             url: "https://github.com/Economy0326/popfitup-frontend",
             backgroundImage: "./imgs/projects/popfitup-cover.gif",
             backgroundColor: "#2563eb",
@@ -54,7 +53,7 @@ window.siteContent = {
         {
             title: "Shopping Mall",
             description:
-                "개인 프로젝트 · 화면 구현에 그치지 않고 주문부터 취소·반품까지 이어지는 전체 서비스 흐름을 직접 연결해 완성한 쇼핑 서비스",
+                "개인 프로젝트, 옵션과 재고를 서버 정책으로 검증하며 주문부터 취소, 반품, 환불까지 Frontend와 Backend로 연결한 쇼핑몰",
             url: "https://github.com/Economy0326/shopping-frontend",
             backgroundImage: "./imgs/projects/shopping-cover.gif",
             backgroundColor: "#ef4444",
@@ -62,14 +61,51 @@ window.siteContent = {
         }
     ],
 
-    about: {
-        title: "About",
-        paragraphs: [
-            "사용자가 복잡한 기능을 어렵게 느끼지 않고, 쉽게 이해하며 믿고 이용할 수 있는 서비스를 만들고 싶습니다.",
-
-            "잘 동작하는 정상적인 흐름만 보는 것보다 실제 사용 중 충분히 생길 수 있는 예외 상황까지 함께 생각하며 구현합니다.",
-
-            "보안이 필요한 정보는 불필요하게 남기지 않고, 정확성이 중요한 정보는 확인할 수 있는 근거와 기준을 두고 전달하는 방식을 중요하게 생각합니다."
+    awards: {
+        title: "Decisions",
+        items: [
+            {
+                project: "Financial Helper",
+                label: "고령층을 위한 단계형 키오스크 UX",
+                detail:
+                    "50~70대 사용자가 한 화면에서 하나의 판단에 집중하도록 상담 단계를 나누고, 큰 선택 영역과 명확한 다음 행동 중심으로 화면을 구성했습니다.",
+                tags: ["Kiosk UX", "Accessibility"]
+            },
+            {
+                project: "Financial Helper",
+                label: "금융 행동의 책임을 Backend에 고정",
+                detail:
+                    "확인된 사실과 승인된 Procedure/FAP가 행동과 순서를 결정하고, AI는 검증된 결과를 설명하는 역할만 담당하도록 분리했습니다.",
+                tags: ["Procedure", "Grounded AI"]
+            },
+            {
+                project: "Financial Helper",
+                label: "공식 근거를 Hybrid Retrieval로 결합",
+                detail:
+                    "KURE-v2 의미 검색과 PostgreSQL keyword 검색을 RRF로 결합하고, 조건과 예외 근거까지 함께 사용하도록 구성했습니다.",
+                tags: ["KURE-v2", "RRF"]
+            },
+            {
+                project: "SecondHand Auction",
+                label: "거래 영향도에 따라 갱신 방식 분리",
+                detail:
+                    "찜은 TanStack Query의 Optimistic Update를 적용하고, 입찰은 실제 거래 상태가 중요해 서버 확정 후 관련 데이터를 다시 조회했습니다.",
+                tags: ["TanStack Query", "Optimistic Update"]
+            },
+            {
+                project: "PopFitUp",
+                label: "불완전한 데이터에서도 탐색 유지",
+                detail:
+                    "크롤링 데이터의 누락된 이미지와 설명은 fallback으로 보완하고, 좌표가 없는 데이터는 카드에는 유지하되 지도 Marker에서는 제외했습니다.",
+                tags: ["Fallback", "Naver Maps"]
+            },
+            {
+                project: "Shopping Mall",
+                label: "옵션과 재고의 최종 판단을 Backend에 고정",
+                detail:
+                    "Frontend는 사용자가 선택한 optionValues만 전달하고, Backend가 실제 variant와 재고를 검증하며 취소와 환불 상태에 따라 재고 복구 시점을 결정했습니다.",
+                tags: ["Inventory", "Backend Policy"]
+            }
         ]
     },
 
@@ -79,7 +115,7 @@ window.siteContent = {
             {
                 label: "Frontend",
                 items:
-                    "Next.js / TypeScript / JavaScript / React / TanStack Query / Zustand"
+                    "TypeScript / JavaScript / React / Next.js / TanStack Query / Zustand"
             },
             {
                 label: "Backend & Data",
@@ -87,56 +123,14 @@ window.siteContent = {
                     "Java / Spring Boot / Spring Security / PostgreSQL / REST API"
             },
             {
-                label: "AI",
+                label: "AI & Retrieval",
                 items:
-                    "OpenAI API / Structured Output / Response Validation"
+                    "OpenAI API / Structured Output / KURE-v2 / Hybrid Retrieval / RRF"
             },
             {
                 label: "Test & Tools",
                 items:
-                    "JUnit / Vitest / Testing Library / Swagger / Git / GitHub / Vercel"
-            }
-        ]
-    },
-
-    awards: {
-        title: "Decisions",
-        items: [
-            {
-                label: "Why Server-managed State?",
-                detail:
-                    "AI 분석을 기다리는 동안 사용자가 화면을 벗어날 수 있다는 점을 고려해, 상담 단계와 분석 상태를 서버에 두었습니다. 다시 들어왔을 때 현재 상태를 조회해 상담을 이어갈 수 있도록 구성했습니다.",
-                tags: ["Server State", "Recovery", "Async"]
-            },
-            {
-                label: "Why Manage Official Data?",
-                detail:
-                    "금융 상담에서는 답변 내용만큼 근거를 확인할 수 있는지가 중요하다고 봤습니다. 공식 출처의 원문을 보존하고, 내용이 바뀌었는지 확인할 수 있도록 변경 이력과 문서 버전을 관리했습니다.",
-                tags: ["Validation", "Versioning", "Data Integrity"]
-            },
-            {
-                label: "Why Minimize Sensitive Data?",
-                detail:
-                    "금융 상담에는 민감한 내용이 포함될 수 있어 상담 원문을 브라우저에 남기지 않았습니다. 세션과 상담 접근 권한도 Backend에서 확인해 필요한 범위 안에서만 상담에 접근하도록 구성했습니다.",
-                tags: ["Security", "Session", "Privacy"]
-            },
-            {
-                label: "Why Different Update Strategies?",
-                detail:
-                    "SecondHand에서는 찜과 입찰을 같은 방식으로 처리하지 않았습니다. 찜은 빠른 반응이 중요해 먼저 화면에 반영하고, 현재가와 다른 사용자의 입찰에 영향을 받는 입찰은 서버 결과를 확인한 뒤 화면을 갱신했습니다.",
-                tags: ["Optimistic Update", "Mutation", "Sync"]
-            },
-            {
-                label: "Why Handle Missing Data?",
-                detail:
-                    "PopFitUp에서 사용하는 크롤링 데이터는 이미지나 좌표가 비어 있는 경우가 있었습니다. 일부 정보가 없어도 사용자가 탐색을 계속할 수 있도록 fallback UI를 두고, 지도에서 사용할 수 없는 데이터는 별도로 처리했습니다.",
-                tags: ["Fallback", "Data", "UX"]
-            },
-            {
-                label: "Why Support the Full Order Flow?",
-                detail:
-                    "Shopping은 상품 화면만 만드는 데서 끝내지 않고 실제 주문이 끝나는 과정까지 연결했습니다. 회원과 비회원 주문을 모두 처리하고, 주문 이후의 취소·반품과 재고 복구까지 하나의 흐름으로 이어지도록 구성했습니다.",
-                tags: ["Order Flow", "Guest", "End-to-End"]
+                    "JUnit / Vitest / Testing Library / Swagger / Git / GitHub"
             }
         ]
     }

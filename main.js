@@ -1,12 +1,18 @@
 const siteContent = window.siteContent || {};
 
-const addClassOnScroll = (element) => element && element.classList.add("come-in");
+const addClassOnScroll = (element) => {
+    if (element) {
+        element.classList.add("come-in");
+    }
+};
 
 const renderNavigation = (navData) => {
     const navRoot = document.getElementById("site-nav");
+
     if (!navRoot || !navData) return;
 
     const logoAccent = navData.logoAccent || "";
+
     const linksMarkup = (navData.links || [])
         .map((item) => {
             const classes = [
@@ -16,8 +22,13 @@ const renderNavigation = (navData) => {
                 .filter(Boolean)
                 .join(" ");
 
-            const content = item.iconClass ? `<i class="${item.iconClass}"></i>` : item.label;
-            const target = item.external ? ' target="_blank" rel="noopener noreferrer"' : "";
+            const content = item.iconClass
+                ? `<i class="${item.iconClass}"></i>`
+                : item.label;
+
+            const target = item.external
+                ? ' target="_blank" rel="noopener noreferrer"'
+                : "";
 
             return `<li><a href="${item.href}" class="${classes.trim()}"${target}>${content}</a></li>`;
         })
@@ -25,25 +36,38 @@ const renderNavigation = (navData) => {
 
     navRoot.innerHTML = `
         <div class="nav-wrapper">
-            <h1 class="nav-logo">${navData.logo}<span class="logo-end">${logoAccent}</span></h1>
-            <ul class="nav-menu">${linksMarkup}</ul>
+            <h1 class="nav-logo">
+                ${navData.logo}<span class="logo-end">${logoAccent}</span>
+            </h1>
+
+            <ul class="nav-menu">
+                ${linksMarkup}
+            </ul>
         </div>
     `;
 };
 
 const renderHero = (heroData) => {
     const heroRoot = document.getElementById("hero");
+
     if (!heroRoot || !heroData) return;
 
     const introLink = heroData.intro?.link;
 
     const introMarkup = heroData.intro
-        ? `<h3>${heroData.intro.text || ""} ${
-                introLink ? `<a href="${introLink.href}" target="_blank" rel="noopener noreferrer">${introLink.label}</a>` : ""
-            }</h3>`
+        ? `<h3>
+            ${heroData.intro.text || ""}
+            ${
+                introLink
+                    ? `<a href="${introLink.href}" target="_blank" rel="noopener noreferrer">${introLink.label}</a>`
+                    : ""
+            }
+        </h3>`
         : "";
 
-    const subtitleMarkup = heroData.subtitle ? `<h3>${heroData.subtitle}</h3>` : "";
+    const subtitleMarkup = heroData.subtitle
+        ? `<h3>${heroData.subtitle}</h3>`
+        : "";
 
     const achievementsMarkup = (heroData.achievements || [])
         .map((item) => {
@@ -51,7 +75,9 @@ const renderHero = (heroData) => {
                 ? `<a href="${item.href}" target="_blank" rel="noopener noreferrer" class="rank-value">${item.label}</a>`
                 : `<span class="rank-value">${item.label}</span>`;
 
-            const suffix = item.suffix ? `<span>${item.suffix}</span>` : "";
+            const suffix = item.suffix
+                ? `<span>${item.suffix}</span>`
+                : "";
 
             return `
                 <li class="rank-item">
@@ -66,14 +92,21 @@ const renderHero = (heroData) => {
         ? `<ul class="rank-list">${achievementsMarkup}</ul>`
         : "";
 
-    heroRoot.innerHTML = `${introMarkup}${subtitleMarkup}${achievementBlock}`;
+    heroRoot.innerHTML = `
+        ${introMarkup}
+        ${subtitleMarkup}
+        ${achievementBlock}
+    `;
 };
 
 const createProjectItem = (project) => {
     const listItem = document.createElement("li");
+
     const classNames = ["project", "ripple", "load-bg"];
 
-    if (project.featured) classNames.push("project--featured");
+    if (project.featured) {
+        classNames.push("project--featured");
+    }
 
     if (Array.isArray(project.extraClasses)) {
         classNames.push(...project.extraClasses);
@@ -121,6 +154,7 @@ const createProjectItem = (project) => {
 
 const renderProjects = (projects) => {
     const projectsRoot = document.getElementById("project-list");
+
     if (!projectsRoot || !projects || !projects.length) return;
 
     projectsRoot.innerHTML = "";
@@ -140,77 +174,37 @@ const buildSectionWrapper = (sectionData) => {
 
     if (sectionData.title) {
         const heading = document.createElement("h2");
-        heading.innerHTML = `${sectionData.title}<span class="logo-end">_</span>`;
+
+        heading.innerHTML = `
+            ${sectionData.title}<span class="logo-end">_</span>
+        `;
+
         wrapper.appendChild(heading);
     }
 
     return wrapper;
 };
 
-const renderAbout = (aboutData) => {
-    const aboutRoot = document.getElementById("about");
-    if (!aboutRoot || !aboutData) return;
-
-    const wrapper = buildSectionWrapper(aboutData);
-
-    (aboutData.paragraphs || []).forEach((text) => {
-        const paragraph = document.createElement("p");
-        paragraph.className = "text-intro";
-        paragraph.textContent = text;
-        wrapper.appendChild(paragraph);
-    });
-
-    aboutRoot.innerHTML = "";
-    aboutRoot.appendChild(wrapper);
-};
-
-const renderTech = (techData) => {
-    const techRoot = document.getElementById("tech");
-    if (!techRoot || !techData) return;
-
-    const wrapper = buildSectionWrapper(techData);
-
-    (techData.categories || []).forEach((category) => {
-        const label = document.createElement("p");
-        label.className = "text-intro";
-        label.textContent = category.label;
-
-        const items = document.createElement("p");
-        items.className = "tech-items";
-
-        const itemList = Array.isArray(category.items)
-            ? category.items
-            : String(category.items || "").split(/\s*\/\s*/);
-
-        itemList
-            .filter(Boolean)
-            .forEach((item) => {
-                const itemElement = document.createElement("span");
-                itemElement.className = "tech-item";
-                itemElement.textContent = item;
-
-                items.appendChild(itemElement);
-            });
-
-        wrapper.appendChild(label);
-        wrapper.appendChild(items);
-    });
-
-    techRoot.innerHTML = "";
-    techRoot.appendChild(wrapper);
-};
-
 const renderAwards = (awardsData) => {
     const awardsRoot = document.getElementById("awards");
+
     if (!awardsRoot || !awardsData) return;
 
     const wrapper = buildSectionWrapper(awardsData);
+
     const grid = document.createElement("div");
     grid.className = "awards-grid";
 
     (awardsData.items || []).forEach((award) => {
         const card = document.createElement("article");
         card.className = "built-card";
+
+        if (award.project) {
+            const project = document.createElement("p");
+            project.className = "built-card__project";
+            project.textContent = award.project;
+            card.appendChild(project);
+        }
 
         const title = document.createElement("h3");
         title.className = "built-card__title";
@@ -243,30 +237,74 @@ const renderAwards = (awardsData) => {
     awardsRoot.appendChild(wrapper);
 };
 
-const initScrollAnimations = () => {
-    let scrollPos = window.scrollY;
+const renderTech = (techData) => {
+    const techRoot = document.getElementById("tech");
 
-    const about = document.querySelector("#about > .text-wrap");
-    const tech = document.querySelector("#tech > .text-wrap");
+    if (!techRoot || !techData) return;
+
+    const wrapper = buildSectionWrapper(techData);
+
+    (techData.categories || []).forEach((category) => {
+        const label = document.createElement("p");
+        label.className = "text-intro";
+        label.textContent = category.label;
+
+        const items = document.createElement("p");
+        items.className = "tech-items";
+
+        const itemList = Array.isArray(category.items)
+            ? category.items
+            : String(category.items || "").split(/\s*\/\s*/);
+
+        itemList
+            .filter(Boolean)
+            .forEach((item) => {
+                const itemElement = document.createElement("span");
+                itemElement.className = "tech-item";
+                itemElement.textContent = item;
+                items.appendChild(itemElement);
+            });
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(items);
+    });
+
+    techRoot.innerHTML = "";
+    techRoot.appendChild(wrapper);
+};
+
+const initScrollAnimations = () => {
     const awards = document.querySelector("#awards > .text-wrap");
+    const tech = document.querySelector("#tech > .text-wrap");
 
     const sections = [
-        { element: about, offset: () => about?.offsetTop - window.innerHeight + 180 || 0 },
-        { element: tech, offset: () => tech?.offsetTop - window.innerHeight + 180 || 0 },
-        { element: awards, offset: () => awards?.offsetTop - window.innerHeight + 180 || 0 }
+        {
+            element: awards,
+            offset: () =>
+                awards?.offsetTop - window.innerHeight + 180 || 0
+        },
+        {
+            element: tech,
+            offset: () =>
+                tech?.offsetTop - window.innerHeight + 180 || 0
+        }
     ];
 
     const handleScroll = () => {
-        scrollPos = window.scrollY;
+        const scrollPos = window.scrollY;
 
         sections.forEach((section) => {
-            if (section.element && scrollPos >= section.offset()) {
+            if (
+                section.element &&
+                scrollPos >= section.offset()
+            ) {
                 addClassOnScroll(section.element);
             }
         });
     };
 
     window.addEventListener("scroll", handleScroll);
+
     handleScroll();
 };
 
@@ -274,9 +312,9 @@ const renderSite = (data) => {
     renderNavigation(data.navigation);
     renderHero(data.hero);
     renderProjects(data.projects);
-    renderAbout(data.about);
-    renderTech(data.tech);
     renderAwards(data.awards);
+    renderTech(data.tech);
+
     initScrollAnimations();
 };
 
